@@ -42,6 +42,7 @@ namespace WeatherForecastApi.Controllers
         // POST /Region
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Post(Region region)
         {

@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Microsoft.EntityFrameworkCore;
 using WeatherForecastApi.Models;
 
 namespace WeatherForecastApi.Middleware;
@@ -40,6 +41,7 @@ public class ExceptionHandlingMiddleware
         {
             ApplicationException _ => new ExceptionResponse(HttpStatusCode.InternalServerError, "Application exception occurred."),
             KeyNotFoundException _ => new ExceptionResponse(HttpStatusCode.NotFound, "The request key not found."),
+            DbUpdateException _ => new ExceptionResponse(HttpStatusCode.BadRequest, exception.InnerException.Message),
             UnauthorizedAccessException _ => new ExceptionResponse(HttpStatusCode.Unauthorized, "Unauthorized."),
             _ => new ExceptionResponse(HttpStatusCode.InternalServerError, "Internal server error. Please retry later.")
         };
