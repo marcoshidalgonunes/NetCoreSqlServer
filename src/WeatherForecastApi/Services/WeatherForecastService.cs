@@ -17,15 +17,15 @@ public class WeatherForecastService(WeatherForecastContext context) : IWeatherFo
             return false;
         }
 
-        var duplicates = weatherForecasts.GroupBy(f => f.Date)
-            .Any(g => g.Count() > 1);
-        if (duplicates)
+        var firstForecast = weatherForecasts.Min(f => f.Date);
+        if (firstForecast <= DateOnly.FromDateTime(DateTime.Now))
         {
             return false;
         }
 
-        var firstForecast = weatherForecasts.Min(f => f.Date);
-        if (firstForecast <= DateOnly.FromDateTime(DateTime.Now))
+        var duplicates = weatherForecasts.GroupBy(f => f.Date)
+            .Any(g => g.Count() > 1);
+        if (duplicates)
         {
             return false;
         }
