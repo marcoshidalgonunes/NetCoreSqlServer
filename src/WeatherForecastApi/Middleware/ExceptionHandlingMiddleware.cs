@@ -37,6 +37,7 @@ public class ExceptionHandlingMiddleware
 
         //More log stuff        
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
         ExceptionResponse response = exception switch
         {
             ApplicationException _ => new ExceptionResponse(HttpStatusCode.InternalServerError, "Application exception occurred."),
@@ -45,6 +46,7 @@ public class ExceptionHandlingMiddleware
             UnauthorizedAccessException _ => new ExceptionResponse(HttpStatusCode.Unauthorized, "Unauthorized."),
             _ => new ExceptionResponse(HttpStatusCode.InternalServerError, "Internal server error. Please retry later.")
         };
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
         context.Response.ContentType = "application/json";
         context.Response.StatusCode = (int)response.StatusCode;

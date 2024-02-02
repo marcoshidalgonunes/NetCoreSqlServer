@@ -30,7 +30,7 @@ public class WeatherForecastService(WeatherForecastContext context) : IWeatherFo
             return false;
         }
 
-        SqlParameter parameterTable = new() {
+        SqlParameter tableParameter = new() {
             SqlDbType = SqlDbType.Structured,
             Direction = ParameterDirection.Input,
             ParameterName = "listIds",
@@ -38,7 +38,7 @@ public class WeatherForecastService(WeatherForecastContext context) : IWeatherFo
             Value = weatherForecasts.ToDataTable()
         };
 
-        await _context.Database.ExecuteSqlAsync($"EXECUTE CreateForecasts {regionId}, {parameterTable}");
+        await _context.Database.ExecuteSqlAsync($"EXECUTE CreateForecasts {regionId}, {tableParameter}");
         return true;
     }
 
