@@ -10,6 +10,11 @@ public class WeatherForecastService(WeatherForecastContext context) : IWeatherFo
 {
     private readonly WeatherForecastContext _context = context;
 
+    private static readonly string[] _summaries =
+    [
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    ];
+
     public async Task<bool> CreateAsync(int regionId, List<WeatherForecast> weatherForecasts)
     {
         if (!await RegionExistsAsync(regionId))
@@ -29,6 +34,14 @@ public class WeatherForecastService(WeatherForecastContext context) : IWeatherFo
         {
             return false;
         }
+
+        var invalidSummaries = weatherForecasts.Where(f => !_summaries.Contains(f.Summary)).Select(f => f.Summary).ToArray();
+        if (invalidSummaries.Length > 0) 
+        {
+            string wrongSummaries = string.Join(',', invalidSummaries.Distinct().OrderBy(s => s).ToArray());
+            throw new DbUpdateException("Invalid summaries", new Exception($"One or more summaries are invalid: '{wrongSummaries}'"));
+        }
+
 
         SqlParameter tableParameter = new() {
             SqlDbType = SqlDbType.Structured,

@@ -8,5 +8,5 @@ SELECT
 	TemperatureC,
 	Summary
   FROM RegionForecasts
-  WHERE @RegionId = @RegionId
+  WHERE @RegionId = @RegionId AND [Date] > GETDATE()
 END

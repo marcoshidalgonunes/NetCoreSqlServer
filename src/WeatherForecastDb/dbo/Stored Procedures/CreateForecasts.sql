@@ -6,8 +6,6 @@
 BEGIN
 	SET NOCOUNT ON
 
-	DELETE FROM RegionForecasts WHERE RegionId = @RegionId
-
 	INSERT INTO RegionForecasts
 	SELECT 
 		@RegionId, 
