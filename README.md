@@ -3,7 +3,7 @@ Example of an Web API using Entity Framework as ORM for SQL Server database, inc
 
 ## Database
 
-The "WeatherForecast" is a SQL Server LocalDB database, suitable to demonstrate the usage of stored procedures with Entity Framework.
+The "WeatherForecast" is a [SQL Server LocalDB](https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-ver16) database, suitable to demonstrate the usage of stored procedures with Entity Framework.
 
 To create the database use the [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/relational-databases/databases/create-a-database?view=sql-server-ver16#SSMSProcedure) feature, which helps to choose a folder to create the corresponding files.
 
