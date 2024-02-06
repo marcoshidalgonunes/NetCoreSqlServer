@@ -20,6 +20,16 @@ Persistence in "RegionForecast" table is made using a Service. This service proc
 
 Additionally, there is a middleware to centralize exception handling.
 
+### Console App
+
+This project shows how to bulk insert lines in a SQL Server table for maximum performance.
+
+Additionally it shows how to read Json data from a file and usage of [System.CommandLine package](https://learn.microsoft.com/en-us/dotnet/standard/commandline/get-started-tutorial) to pass arguments to console application. Below there is an example of usage (note that the application name is different from project name):
+
+```wfload --regionId 1 -- jsonFile "C:\Forecasts\2024-01_January.json"```
+
+> "forecasts.json" is an example of file containing weather forecasts in JSON formatted accordingly "WeatherForecast" database.
+
 ### Database
 
 This project maintains the "WeatherForecast" database in the SQL Server LocalDB. It contains a Schema Compare to create the database objects (tables, user defined table and stored procedures), which should be run once to let the solution ready to run.
