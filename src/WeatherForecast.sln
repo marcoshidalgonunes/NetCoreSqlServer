@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherForecastApi", "Weath
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "WeatherForecastDb", "WeatherForecastDb\WeatherForecastDb.sqlproj", "{433D6A7A-E275-43DF-9F9E-60C48CC56EF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecastConsoleApp", "WeatherForecastConsoleApp\WeatherForecastConsoleApp.csproj", "{088BD77D-1016-436E-A8AC-1A0A07F50EFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{433D6A7A-E275-43DF-9F9E-60C48CC56EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{433D6A7A-E275-43DF-9F9E-60C48CC56EF5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{433D6A7A-E275-43DF-9F9E-60C48CC56EF5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{088BD77D-1016-436E-A8AC-1A0A07F50EFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{088BD77D-1016-436E-A8AC-1A0A07F50EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{088BD77D-1016-436E-A8AC-1A0A07F50EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{088BD77D-1016-436E-A8AC-1A0A07F50EFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

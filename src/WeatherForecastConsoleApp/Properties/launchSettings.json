@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WeatherForecastConsoleApp": {
+      "commandName": "Project",
+      "commandLineArgs": "--regionId 1 --jsonFile \"..\\..\\..\\..\\..\\forecasts.json\""
+    }
+  }
+}

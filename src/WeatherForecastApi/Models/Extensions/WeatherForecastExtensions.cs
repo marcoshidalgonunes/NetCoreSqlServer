@@ -13,7 +13,7 @@ public static class WeatherForecastExtensions
 
     public static List<SqlDataRecord> ToDataTable(this List<WeatherForecast> weatherForecasts)
     {
-        List<SqlDataRecord> records = new();
+        List<SqlDataRecord> records = [];
         for (int i = 0; i < weatherForecasts.Count; i++)
         {
             var weatherForecast = weatherForecasts[i];
