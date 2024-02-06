@@ -46,7 +46,7 @@ namespace WeatherForecastConsoleApp
                 .AddJsonFile("appsettings.json", optional: true)
                 .Build();
 
-            RootCommand rootCommand = new("Sample app for System.CommandLine");
+            RootCommand rootCommand = new("App to load forecasts from Json file to SQL Server database via bulk insert");
             rootCommand.AddOption(regionOption);
             rootCommand.AddOption(fileOption);
 
