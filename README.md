@@ -28,7 +28,7 @@ Additionally it shows how to read Json data from a file and usage of [System.Com
 
 ```wfload --regionId 1 -- jsonFile "C:\Forecasts\2024-01_January.json"```
 
-> "forecasts.json" is an example of file containing weather forecasts in JSON formatted accordingly "WeatherForecast" database.
+> ["forecasts.json"](forecasts.json) is an example of file containing weather forecasts in JSON formatted accordingly "WeatherForecast" database.
 
 ### Database
 
