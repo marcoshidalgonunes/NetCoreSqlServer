@@ -11,7 +11,7 @@ public static class WeatherForecastExtensions
         new("Summary", SqlDbType.NVarChar, 255),
     ];
 
-    public static List<SqlDataRecord> ToDataTable(this List<WeatherForecast> weatherForecasts)
+    public static List<SqlDataRecord> ToTable(this List<WeatherForecast> weatherForecasts)
     {
         List<SqlDataRecord> records = [];
         for (int i = 0; i < weatherForecasts.Count; i++)

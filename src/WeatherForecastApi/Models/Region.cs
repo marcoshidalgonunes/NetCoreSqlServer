@@ -1,9 +1,8 @@
-﻿namespace WeatherForecastApi.Models
-{
-    public class Region
-    {
-        public int Id { get; set; }
+﻿namespace WeatherForecastApi.Models;
 
-        public required string Name { get; set; }
-    }
+public class Region
+{
+    public int Id { get; set; }
+
+    public required string Name { get; set; }
 }

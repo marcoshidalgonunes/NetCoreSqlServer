@@ -43,7 +43,7 @@ internal class Program
 
         var config = new ConfigurationBuilder()
             .SetBasePath(Path.Combine(AppContext.BaseDirectory))
-            .AddJsonFile("appsettings.json", optional: true)
+            .AddJsonFile("appsettings.json")
             .Build();
 
         RootCommand rootCommand = new("App to load forecasts from Json file to SQL Server database via bulk insert");

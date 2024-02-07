@@ -12,7 +12,16 @@ public class WeatherForecastService(WeatherForecastContext context) : IWeatherFo
 
     private static readonly string[] _summaries =
     [
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        "Freezing",
+        "Bracing",
+        "Chilly",
+        "Cool",
+        "Mild",
+        "Warm",
+        "Balmy",
+        "Hot",
+        "Sweltering",
+        "Scorching"
     ];
 
     public async Task<bool> CreateAsync(int regionId, List<WeatherForecast> weatherForecasts)
@@ -38,17 +47,16 @@ public class WeatherForecastService(WeatherForecastContext context) : IWeatherFo
         var invalidSummaries = weatherForecasts.Where(f => !_summaries.Contains(f.Summary)).Select(f => f.Summary).ToArray();
         if (invalidSummaries.Length > 0) 
         {
-            string wrongSummaries = string.Join(',', invalidSummaries.Distinct().OrderBy(s => s).ToArray());
+            string wrongSummaries = string.Join(',', [.. invalidSummaries.Distinct().OrderBy(s => s)]);
             throw new DbUpdateException("Invalid summaries", new Exception($"One or more summaries are invalid: '{wrongSummaries}'"));
         }
-
 
         SqlParameter tableParameter = new() {
             SqlDbType = SqlDbType.Structured,
             Direction = ParameterDirection.Input,
             ParameterName = "listIds",
             TypeName = "[dbo].[Forecasts]", 
-            Value = weatherForecasts.ToDataTable()
+            Value = weatherForecasts.ToTable()
         };
 
         await _context.Database.ExecuteSqlAsync($"EXECUTE CreateForecasts {regionId}, {tableParameter}");
