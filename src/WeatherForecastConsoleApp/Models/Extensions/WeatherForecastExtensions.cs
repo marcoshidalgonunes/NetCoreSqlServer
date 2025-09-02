@@ -13,13 +13,16 @@ internal static class WeatherForecastExtensions
         columns.Add("TemperatureC", typeof(int));
         columns.Add("Summary", typeof(string));
 
+        DateTime currentDate = DateTime.Today;
+
         for (int i = 0; i < weatherForecasts.Count; i++)
         {
             var weatherForecast = weatherForecasts[i];
+            var date = currentDate.AddDays(i + 1);
 
             var row = table.NewRow();
             row["RegionId"] = regionId;
-            row["Date"] = weatherForecast.Date.ToDateTime(TimeOnly.MinValue);
+            row["Date"] = date;
             row["TemperatureC"] = weatherForecast.TemperatureC;
             row["Summary"] = weatherForecast.Summary;
 
