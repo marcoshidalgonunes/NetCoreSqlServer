@@ -6,7 +6,7 @@ using WeatherForecastApi.Repositories;
 
 namespace WeatherForecastApi.Services;
 
-public class WeatherForecastService(WeatherForecastContext context) : IWeatherForecastService
+public class WeatherForecastService(WeatherForecastContext context)
 {
     private readonly WeatherForecastContext _context = context;
 

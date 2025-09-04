@@ -9,7 +9,8 @@ var services = builder.Services;
 // Add services to the container.
 services.AddDbContext<WeatherForecastContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-services.AddScoped<IWeatherForecastService, WeatherForecastService>();
+services.AddScoped<RegionService>();
+services.AddScoped<WeatherForecastService>();
 services.AddControllers()
     .ConfigureApiBehaviorOptions(options =>
     {

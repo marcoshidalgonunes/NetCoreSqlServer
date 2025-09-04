@@ -1,13 +1,10 @@
 ﻿using System.Text.Json;
-using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
 using WeatherForecastConsoleApp.Models;
 
 namespace WeatherForecastConsoleApp.Services;
 
-internal sealed class WeatherForecastService(IConfigurationRoot config)
+internal sealed class WeatherForecastService
 {
-    private readonly IConfigurationRoot _config = config;
 
     private static readonly string[] _summaries =
     [
@@ -22,19 +19,6 @@ internal sealed class WeatherForecastService(IConfigurationRoot config)
         "Sweltering",
         "Scorching"
     ];
-
-    internal async Task BulkInsertAsync(int regionId, List<WeatherForecast> weatherForecasts)
-    {
-        using SqlBulkCopy copy = new(_config.GetConnectionString("DefaultConnection"));
-
-        copy.DestinationTableName = "dbo.RegionForecasts";
-        copy.ColumnMappings.Add("RegionId", "RegionId");
-        copy.ColumnMappings.Add(nameof(WeatherForecast.Date), "[Date]");
-        copy.ColumnMappings.Add(nameof(WeatherForecast.TemperatureC), "TemperatureC");
-        copy.ColumnMappings.Add(nameof(WeatherForecast.Summary), "Summary");
-
-        await copy.WriteToServerAsync(weatherForecasts.ToDataTable(regionId));
-    }
 
     internal static async Task<List<WeatherForecast>?> ReadFileAsync(string filePath)
     {

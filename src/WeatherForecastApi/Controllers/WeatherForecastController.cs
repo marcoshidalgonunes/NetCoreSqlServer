@@ -6,9 +6,9 @@ namespace WeatherForecastApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController(IWeatherForecastService service) : ControllerBase
+public class WeatherForecastController(WeatherForecastService service) : ControllerBase
 {
-    private readonly IWeatherForecastService _service = service;
+    private readonly WeatherForecastService _service = service;
 
     // GET: /WeatherForecast/{regionId}
     [HttpGet("{regionId}")]

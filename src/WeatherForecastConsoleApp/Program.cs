@@ -1,6 +1,7 @@
 ﻿using System.CommandLine;
 using Microsoft.Extensions.Configuration;
 using WeatherForecastConsoleApp.Models;
+using WeatherForecastConsoleApp.Repositories;
 using WeatherForecastConsoleApp.Services;
 
 namespace WeatherForecastConsoleApp;
@@ -56,7 +57,7 @@ internal class Program
                 List<WeatherForecast>? forecasts = await WeatherForecastService.ReadFileAsync(filepath);
                 if (forecasts?.Count > 0)
                 {
-                    var repository = new WeatherForecastService(config);
+                    var repository = new WeatherForecastRepository(config);
                     await repository.BulkInsertAsync(regionId, forecasts);
                 }
                 else
